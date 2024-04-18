@@ -13,9 +13,8 @@ def fetch_carddav_data(url, username, password):
         if response.status_code == 200:
             data = json.loads(response.text)
             return data
-        else:
-            print(f"Failed to fetch data: {response.status_code}")
-            return None
+        print(f"Failed to fetch data: {response.status_code}")
+        return None
     except requests.exceptions.Timeout:
         print("Request timed out")
         return None
