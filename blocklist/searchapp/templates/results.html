@@ -1,0 +1,11 @@
+<html>
+<body>
+    {% if result %}
+        <p>Phone: {{ result.phone }}</p>
+        <p>Rating: {{ result.rating }}</p>
+        <p>Votes: {{ result.votes }}</p>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>
