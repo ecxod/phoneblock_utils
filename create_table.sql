@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `addressbook` (
+    `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `phone` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+    `rating` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+    `votes` INT(11) UNSIGNED NULL DEFAULT NULL,
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE INDEX `phone` (`phone`) USING BTREE
+)
