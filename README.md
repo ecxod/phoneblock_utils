@@ -6,11 +6,12 @@ You need to register and get a user and a password there, in irder to use this s
 ## Create a virtual user first
 
 ```bash
-$ apt install python3-pip
+$ apt install git python3-pip
 $ adduser --system --disabled-password --shell=/bin/bash --home /raid/home/blocklist --group blocklist
 $ su - blocklist
 ```
 ### as user blocklist
+
 ```bash 
 $ python3 -m venv virtual
 $ source virtual/bin/activate
@@ -19,9 +20,32 @@ $ python3 -m pip install requests
 $ python3 -m pip install mysql-connector-python
 $ python3 -m pip install xmltodict
 $ python3 -m pip install vobject
+$ python3 -m pip install python-dotenv
 
+$ cd cd ~/virtual/
+$ git clone https://github.com/ecxod/phoneblock_utils.git
 ```
 
+### Get yourself a Blocklist user and password
+
+Get yourself credentials by registring https://phoneblock.net/ and copy this file to `.env`
+
+```env
+CARDDAV_URL=https://phoneblock.net/phoneblock/api/blocklist?format=json
+CARDDAV_USERNAME=phoneblock_username
+CARDDAV_PASSWORD=phoneblock_password
+MYSQL_HOST=localhost
+MYSQL_DATABASE=your_database
+MYSQL_USER=your_db_user
+MYSQL_PASSWORD=your_db_password
+```
+
+### create the mysql database (as root) if you haven't yet
+
+```bash
+$ sudo chmod +x /raid/home/blocklist/virtual/create_mysql_database.sh
+$ sudo /usr/bin/bash /raid/home/blocklist/virtual/create_mysql_database.sh
+```
 
 ### Set up a crontab to fetch the bad boys every day at 7 AM
 
