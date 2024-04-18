@@ -1,34 +1,42 @@
 # Phoneblock Utils
 
-These are some scripts related to https://github.com/haumacher/phoneblock that help you use other tools ecxept AVM Fritzbox, Apple and Google Devices, such as XML, LDAP and Broadsoft on SIP phones. 
-You need to register and get a user and a password there, in irder to use this scripts.
+These are some scripts related to https://github.com/haumacher/phoneblock that help you use other tools except AVM Fritzbox, Apple and Google Devices, such as XML, LDAP and Broadsoft on SIP phones. 
+You need to register and get a user and a password there, in order to use this scripts.
 
-## Create a virtual user first
+## Create a user blocklist first
 
 ```bash
 $ apt install git python3-pip
 $ adduser --system --disabled-password --shell=/bin/bash --home /raid/home/blocklist --group blocklist
 $ su - blocklist
 ```
-### as user blocklist
+### as user blocklist create a virtual environment
 
 ```bash 
 $ python3 -m venv virtual
 $ source virtual/bin/activate
+```
+
+### install all dependencies
+
+```bash
 $ python3 -m pip install --upgrade pip
 $ python3 -m pip install requests
 $ python3 -m pip install mysql-connector-python
 $ python3 -m pip install xmltodict
 $ python3 -m pip install vobject
 $ python3 -m pip install python-dotenv
+```
+### clone this repository in your virtual environment
 
-$ cd cd ~/virtual/
+```bash
+$ cd ~/virtual/
 $ git clone https://github.com/ecxod/phoneblock_utils.git
 ```
 
 ### Get yourself a Blocklist user and password
 
-Get yourself credentials by registring https://phoneblock.net/ and copy this file to `.env`
+Get yourself credentials by registering https://phoneblock.net/ and copy this file to `.env`
 
 ```env
 CARDDAV_URL=https://phoneblock.net/phoneblock/api/blocklist?format=json
@@ -40,7 +48,7 @@ MYSQL_USER=your_db_user
 MYSQL_PASSWORD=your_db_password
 ```
 
-### create the mysql database (as root) if you haven't yet
+### create the mysql database (as root) if you haven't done it yet
 
 ```bash
 $ sudo chmod +x /raid/home/blocklist/virtual/create_mysql_database.sh
