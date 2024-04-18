@@ -23,7 +23,7 @@ $ python3 -m pip install vobject
 ```
 
 
-## Set uo a crontab to fetch the bad boys every day at 7 AM
+### Set up a crontab to fetch the bad boys every day at 7 AM
 
 ```bash
 $ crontab -e -u blocklist
