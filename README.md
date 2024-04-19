@@ -70,9 +70,10 @@ crontab -e -u blocklist
 ```bash
 python3 -m pip install django
 python3 -m pip install django-admin
+python3 -m pip install django-bootstrap5
 
-mkdir ~/virtual/webspace
-cd ~/virtual/webspace
+mkdir ~/virtual/blocklist
+cd ~/virtual/blocklist
 django-admin startproject blocklist
 cd blocklist
 ```
