@@ -40,6 +40,6 @@ def search_view(request):
 
 
 
-def home_view():
+def home_view(request):
     """ home view """
-    return HttpResponse("Welcome to the Home Page!")
+    return HttpResponse("Welcome to the Home Page!" + str(request) )
