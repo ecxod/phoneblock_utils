@@ -20,7 +20,7 @@ jobs:
         pwd
         ls -l
         python -m pip install --upgrade pip
-        pip install -r /home/runner/work/phoneblock_utils/phoneblock_utils/blocklist/requirements.txt
+        pip install -r requirements.txt
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
