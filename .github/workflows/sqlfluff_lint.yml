@@ -1,6 +1,6 @@
 name: SQLFluff Lint
 
-on:
+on: [push]
   pull_request:
     paths:
       - '**/*.sql'
