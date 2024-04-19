@@ -1,9 +1,9 @@
 name: SQLFluff Lint
 
 on: [push]
-  pull_request:
-    paths:
-      - '**/*.sql'
+  # pull_request:
+  #   paths:
+  #     - '**/*.sql'
 
 jobs:
   lint:
@@ -17,4 +17,4 @@ jobs:
     - name: Install SQLFluff
       run: pip install sqlfluff
     - name: Lint SQL files
-      run: sqlfluff lint --format github-annotation sql/
+      run: sqlfluff lint --format github-annotation '**/*.sql'
