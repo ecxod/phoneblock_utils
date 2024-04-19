@@ -1,20 +1,16 @@
-name: SQLFluff Lint
+name: SQL Lint
 
-on: [push]
-  # pull_request:
-  #   paths:
-  #     - '**/*.sql'
+on:
+  push:
+    paths:
+      - 'create_table.sql'
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v3
+    - name: Lint SQL file
+      uses: Bidaya0/sql-lint-in-action@v0.0.1
       with:
-        python-version: '3.8'
-    - name: Install SQLFluff
-      run: pip install sqlfluff
-    - name: Lint SQL files
-      run: sqlfluff lint --format github-annotation '**/*.sql'
+        path: 'create_table.sql'
