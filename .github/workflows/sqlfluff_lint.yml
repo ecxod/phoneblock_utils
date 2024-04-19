@@ -1,0 +1,20 @@
+name: SQLFluff Lint
+
+on:
+  pull_request:
+    paths:
+      - '**/*.sql'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+    - name: Install SQLFluff
+      run: pip install sqlfluff
+    - name: Lint SQL files
+      run: sqlfluff lint --format github-annotation sql/
