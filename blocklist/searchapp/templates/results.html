@@ -1,11 +1,38 @@
+<!DOCTYPE html>
 <html>
+
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+
+    {% load static %}
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+
 <body>
-    {% if result %}
-        <p>Phone: {{ result.phone }}</p>
-        <p>Rating: {{ result.rating }}</p>
-        <p>Votes: {{ result.votes }}</p>
-    {% else %}
+    <div class="container-sm" style="max-width: 960px !important;">
+        <h1 class="py-5">Query a Phone Number</h1>
+        {% if result %}
+        <table class="table border border-1 p-5">
+            <tr>
+                <td>Phone:</td>
+                <td>{{ result.phone }}</td>
+            </tr>
+            <tr>
+                <td>Rating:</td>
+                <td>{{ result.rating }}</td>
+            </tr>
+            <tr>
+                <td>Votes:</td>
+                <td>{{ result.votes }}</td>
+            </tr>
+        </table>
+
+        {% else %}
         <p>No results found.</p>
-    {% endif %}
+        {% endif %}
+    </div>
 </body>
+{% bootstrap_javascript %}
+
 </html>

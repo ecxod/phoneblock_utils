@@ -1,9 +1,26 @@
+<!DOCTYPE html>
 <html>
+
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+
+    {% load static %}
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+
 <body>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Search</button>
-    </form>
+    <div class="container-sm" style="max-width: 960px !important;">
+        <h1 class="py-5">Query a Phone Number</h1>
+        <form method="post" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% bootstrap_button button_type="submit" content="Search" %}
+        </form>
+    </div>
+
 </body>
+
+{% bootstrap_javascript %}
+
 </html>

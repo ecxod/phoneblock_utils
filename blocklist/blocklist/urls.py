@@ -22,4 +22,6 @@ urlpatterns = [
     path('', home_view, name='home'),  # URL pattern for the root path
     path('admin/', admin.site.urls),
     path('search/', include('searchapp.urls')),
+
+
 ]

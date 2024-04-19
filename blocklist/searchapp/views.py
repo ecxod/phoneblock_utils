@@ -14,7 +14,8 @@ def search_phone_number(phone_number):
     root = tree.getroot()
 
     for phone_info in root.findall('.//phone-info'):
-        if phone_info.get('phone') == phone_number:
+        phone = phone_info.get('phone')
+        if phone.startswith(phone_number):
             return {
                 'phone': phone_info.get('phone'),
                 'rating': phone_info.get('rating'),
